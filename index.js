@@ -13,6 +13,7 @@ const liveServer = livereload.createServer({
   debug: true,
 });
 
+liveServer.watch(__dirname);
 app.use("/api/user", user);
 
 app.listen(port, () => {

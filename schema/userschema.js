@@ -3,4 +3,10 @@ const schema = new mongoose.Schema({
   name: String,
   data: Object,
 });
-module.exports = () => mongoose.model("User", schema);
+
+// static method
+schema.statics.userInfo = function (req) {
+  return this.findOne({ name: req.params.userid });
+};
+
+module.exports = mongoose.model("User", schema);

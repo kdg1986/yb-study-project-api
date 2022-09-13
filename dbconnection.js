@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
-const { user } = require("./schema");
+require("dotenv").config();
+
+const { MONGO_URL, MONGO_USER, MONGO_PASSWORD } = process.env;
 
 module.exports = () => {
   function connect() {
     mongoose.connect(
-      "mongodb+srv://root:qwe123!%40%23@cluster.rabn0b5.mongodb.net/study",
+      `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URL}`,
       (err) => {
         if (err) {
           console.error("mongodb connection error", err);
@@ -14,6 +16,5 @@ module.exports = () => {
     );
   }
   connect();
-  user();
   mongoose.connection.on("disconnected", connect);
 };

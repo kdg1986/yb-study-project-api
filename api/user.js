@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { user } = require("../schema");
+const User = require("../schema/userSchema");
 
-const User = user();
-
+// http://localhost:4000/api/user/info/kim
 router.get("/info/:userid", (req, res) => {
-  User.findOne({ name: req.params.userid }, (err, user) => {
-    res.json(user);
-  });
+  User.userInfo(req)
+    .then((user) => res.json(user))
+    .catch((err) => res.json(err));
 });
 
 module.exports = router;
