@@ -5,7 +5,7 @@ module.exports = () => {
   function connect() {
     mongoose.connect(
       "mongodb+srv://root:qwe123!%40%23@cluster.rabn0b5.mongodb.net/study",
-      function (err) {
+      (err) => {
         if (err) {
           console.error("mongodb connection error", err);
         }
