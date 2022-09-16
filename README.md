@@ -5,6 +5,10 @@
 - express
 - mongoose
 
+## mongodb
+
+- https://mongoosejs.com/docs/queries.html
+
 ## Tool
 
 - https://www.mongodb.com/try/download/compass ( 계정정보 env 참조 )
