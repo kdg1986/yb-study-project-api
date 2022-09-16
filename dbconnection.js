@@ -1,9 +1,11 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const { MONGO_URL, MONGO_USER, MONGO_PASSWORD } = process.env;
 
-module.exports = () => {
+export default () => {
   function connect() {
     mongoose.connect(
       `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URL}`,

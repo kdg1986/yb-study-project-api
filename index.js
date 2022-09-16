@@ -1,23 +1,26 @@
-const express = require("express");
+import express from "express";
+import dbconnection from "./dbconnection.js";
+import livereloadMiddleware from "connect-livereload";
+import livereload from "livereload";
+import url from "url";
+import { user } from "./api/index.js";
+
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
 const port = 4000;
-const db = require("./dbconnection");
-const livereload = require("livereload");
-const livereloadMiddleware = require("connect-livereload");
-const { user } = require("./api");
 
-db();
+dbconnection();
 
-const liveServer = livereload.createServer({
-  exts: ["html", "css", "ejs"],
-  debug: true,
-});
-
-liveServer.watch(__dirname);
-app.use("/api/user", user);
+livereload
+  .createServer({
+    exts: ["html", "css", "ejs"],
+    debug: true,
+  })
+  .watch(__dirname);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
+app.use("/api/user", user);
 app.use(livereloadMiddleware());

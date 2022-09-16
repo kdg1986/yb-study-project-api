@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
+import User from "../schema/userschema.js";
 const router = express.Router();
-const User = require("../schema/userSchema");
 
 // http://localhost:4000/api/user/info/kim
 router.get("/info/:userid", (req, res) => {
@@ -9,4 +9,4 @@ router.get("/info/:userid", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-module.exports = router;
+export default router;
