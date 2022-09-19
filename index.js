@@ -1,9 +1,9 @@
 import express from "express";
-import dbconnection from "./dbconnection.js";
+import dbconnection from "./dbconnection";
 import livereloadMiddleware from "connect-livereload";
 import livereload from "livereload";
 import url from "url";
-import { user } from "./api/index.js";
+import { user } from "./api";
 
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
