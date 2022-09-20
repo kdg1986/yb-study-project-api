@@ -1,5 +1,5 @@
 import express from "express";
-import User from "../schema/userschema";
+import User from "@SCHEMA/UserSchema";
 const router = express.Router();
 
 // http://localhost:4000/api/user/info/kim

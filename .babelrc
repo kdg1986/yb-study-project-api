@@ -1,0 +1,15 @@
+{
+  "presets": ["@babel/env"],
+  "plugins": [
+    ["transform-dirname-filename"],
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@API": "./api",
+          "@SCHEMA": "./schema"
+        }
+      }
+    ]
+  ]
+}
