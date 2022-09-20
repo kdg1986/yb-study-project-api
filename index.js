@@ -2,10 +2,8 @@ import express from "express";
 import dbconnection from "./dbconnection";
 import livereloadMiddleware from "connect-livereload";
 import livereload from "livereload";
-import url from "url";
-import { user } from "./api";
+import { auth } from "@API";
 
-const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
 const port = 4000;
 
@@ -22,5 +20,5 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-app.use("/api/user", user);
+app.use("/api/auth", auth);
 app.use(livereloadMiddleware());
