@@ -17,7 +17,7 @@ livereload
   .watch(__dirname);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port11 ${port}`);
 });
 
 app.use("/api/auth", auth);
