@@ -19,6 +19,9 @@ livereload
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", auth);
+
 app.use(livereloadMiddleware());
